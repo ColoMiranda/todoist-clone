@@ -5,7 +5,7 @@ import moment from 'moment';
 
 
 
-export const useTask = selectedProject => {
+export const useTasks = selectedProject => {
     const [tasks, setTasks] = useState([]);
     const [archivedTasks, setArchivedTasks] = useState([]);
 
@@ -34,7 +34,7 @@ export const useTask = selectedProject => {
 
         unsubscribe = unsubscribe.onSnapshot(snapshot => {
             const newTasks = snapshot.docs.map(task => ({
-                id: task.id
+                id: task.id,
                 ...task.data(),
             }));
 
